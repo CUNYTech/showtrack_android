@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/register_page"
+        android:fillViewport="true"
+        android:scrollbars="vertical"
+        tools:context="com.codingmechanic.loginpage.RegisterActivity">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/activity_vertical_margin"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_vertical_margin">
+
+                <EditText
+                    android:id="@+id/txtUserNameRegister"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/rounded_edittext"
+                    android:ems="10"
+                    android:hint="@string/user_name"
+                    android:inputType="textPersonName"
+                    android:textAlignment="center"
+                    tools:targetApi="jelly_bean_mr1" />
+
+                <EditText
+                    android:id="@+id/txtEmailRegister"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/rounded_edittext"
+                    android:ems="10"
+                    android:hint="@string/email"
+                    android:inputType="textEmailAddress"
+                    android:textAlignment="center"
+                    tools:targetApi="jelly_bean_mr1" />
+
+                <EditText
+                    android:id="@+id/txtDisplayNameRegister"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/rounded_edittext"
+                    android:ems="10"
+                    android:hint="@string/display_name"
+                    android:textAlignment="center"
+                    tools:targetApi="jelly_bean_mr1" />
+
+                <EditText
+                    android:id="@+id/txtPasswordRegister"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/rounded_edittext"
+                    android:ems="10"
+                    android:hint="@string/password"
+                    android:inputType="textPassword"
+                    android:textAlignment="center"
+                    tools:targetApi="jelly_bean_mr1" />
+
+
+                <Button
+                    android:id="@+id/btnRegister"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/rounded_button"
+                    android:text="@string/register"
+                    android:textAlignment="center"
+                    tools:targetApi="jelly_bean_mr1" />
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/txtSigninNow"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:text="@string/already_registered_sign_in"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+</LinearLayout>

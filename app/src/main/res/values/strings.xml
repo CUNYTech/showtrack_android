@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Show Track</string>
+    <string name="user_name">User Name</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="register_now">Don\'t have an Account? Register Now</string>
+    <string name="remember_me">Remember Me</string>
+    <string name="email">Email</string>
+    <string name="retype_password">Retype Password</string>
+    <string name="register">Register</string>
+    <string name="already_registered_sign_in">Already Registered? Sign In</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="type">type</string>
+
+    <string name="type_prompt">Choose a Type</string>
+    <string name="choose_a_type">Choose a Type</string>
+    <string name="logout">LogOut</string>
+    <string name="welcome">Welcome</string>
+    <string name="display_name">Display Name</string>
+</resources>

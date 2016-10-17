@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#C25959</color>
+    <color name="colorPrimaryDark">#a10000</color>
+    <color name="colorAccent">#009489</color>
+    <color name="register_page">#404040</color>
+    <color name="login_page">#303030</color>
+    <color name="register_page_button">#4E2A8E</color>
+    <color name="color_button">#C25959</color>
+</resources>
