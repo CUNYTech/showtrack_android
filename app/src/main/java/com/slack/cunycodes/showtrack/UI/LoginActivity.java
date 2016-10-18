@@ -1,8 +1,9 @@
-package com.slack.cunycodes.showtrack;
+package com.slack.cunycodes.showtrack.UI;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.NavigationView;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -19,7 +20,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.slack.cunycodes.showtrack.App.AppConfig;
-import com.slack.cunycodes.showtrack.helper.SessionManager;
+import com.slack.cunycodes.showtrack.R;
+import com.slack.cunycodes.showtrack.Helper.SessionManager;
+import com.slack.cunycodes.showtrack.Helper.Utility;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -53,7 +56,7 @@ public class LoginActivity extends AppCompatActivity {
         pDialog.setMessage("Logging In");
 
         if (session.isLoggedIn()) {
-            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            Intent intent = new Intent(LoginActivity.this, NavigationActivity.class);
             startActivity(intent);
             finish();
         }
@@ -61,63 +64,6 @@ public class LoginActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Toast.makeText(getApplicationContext(),"Login Clicked", Toast.LENGTH_SHORT).show();
-//                String username = userName.getText().toString().toLowerCase().trim();
-//                String pass = passWord.getText().toString().trim();
-//
-//                String dataType = "login";
-//                JSONObject post_dict = new JSONObject();
-//
-//                try {
-//                    post_dict.put("username" , username);
-//                    post_dict.put("password", pass);
-//                } catch (JSONException e) {
-//                    e.printStackTrace();
-//                }
-//
-//                if (!username.isEmpty() && !pass.isEmpty()) {
-//                    BackgroundWorker bg = new BackgroundWorker(getApplicationContext());
-//                    try {
-//                        String jsonStr = bg.execute(dataType, post_dict.toString()).get();
-//                        JSONObject jObj = new JSONObject(jsonStr);
-//                        String error = jObj.optString("non_field_errors");
-//                        String errorString = "Unable to login with provided credentials.";
-//
-//                        // Check for error node in json
-//                        if (!error.equals(errorString)) {
-//                            // user successfully logged in
-//                            // Create login session
-//                            String token = jObj.getString("token");
-//                            session.setLogin(true);
-//                            session.setToken(token);
-//
-//                            String s = session.getToken();
-//                            // Now store the user in SQLite
-//
-//                            int x=1;
-//
-//
-//
-//                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-//                            startActivity(intent);
-//                            finish();
-//
-//                        } else {
-//                            // Error in login. Get the error message
-//                            String errorMsg = jObj.getString("error-message");
-//                            Toast.makeText(getApplicationContext(),
-//                                    errorMsg, Toast.LENGTH_LONG).show();
-//                        }
-//                    } catch (InterruptedException | ExecutionException | JSONException e) {
-//                        e.printStackTrace();
-//                    }
-//
-//                } else {
-//                    // Prompt user to enter credentials
-//                    Toast.makeText(getApplicationContext(),
-//                            "Please enter the credentials!", Toast.LENGTH_LONG)
-//                            .show();
-//                }
                 showDialog();
                 String username = userName.getText().toString().toLowerCase().trim();
                 String pass = passWord.getText().toString().trim();

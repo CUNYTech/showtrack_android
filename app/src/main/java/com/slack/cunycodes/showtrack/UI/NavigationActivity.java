@@ -1,11 +1,10 @@
-package com.slack.cunycodes.showtrack;
+package com.slack.cunycodes.showtrack.UI;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -13,15 +12,23 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
-import com.slack.cunycodes.showtrack.helper.SessionManager;
+import com.slack.cunycodes.showtrack.R;
+import com.slack.cunycodes.showtrack.Helper.SessionManager;
+import com.slack.cunycodes.showtrack.Helper.Utility;
 
 import static com.slack.cunycodes.showtrack.R.id.fab;
 
 public class NavigationActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    private final String LOG_TAG = getClass().getSimpleName();
+    private String mUserName;
+    private String mEmailAddress;
     SessionManager session;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +42,17 @@ public class NavigationActivity extends AppCompatActivity
         if (!session.isLoggedIn()) {
             logout();
         }
+
+        setUserNameAndEmail();
+
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        View headerView = navigationView.getHeaderView(0);
+        TextView userNameView = (TextView) headerView.findViewById(R.id.username_nav_header);
+        TextView emailView = (TextView) headerView.findViewById(R.id.email_nav_header);
+        userNameView.setText(mUserName);
+        emailView.setText(mEmailAddress);
+
 
 
         FloatingActionButton fabButton = (FloatingActionButton) findViewById(fab);
@@ -52,7 +70,6 @@ public class NavigationActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
 
@@ -83,6 +100,10 @@ public class NavigationActivity extends AppCompatActivity
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
+        }else if(id==R.id.action_logout){
+            logout();
+        }else if(id == R.id.action_search){
+
         }
 
         return super.onOptionsItemSelected(item);
@@ -123,4 +144,18 @@ public class NavigationActivity extends AppCompatActivity
         startActivity(intent);
         finish();
     }
+
+    private void setUserNameAndEmail(){
+        String encodedToken = session.getToken();
+        String[] info = new String[2];
+        try {
+            info = Utility.decoded(encodedToken);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        mUserName = info[0];
+        mEmailAddress = info[1];
+    }
+
 }
