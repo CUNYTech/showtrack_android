@@ -145,7 +145,22 @@ public class LoginActivity extends AppCompatActivity {
                             new Response.Listener<JSONObject>() {
                                 @Override
                                 public void onResponse(JSONObject response) {
-                                    Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_LONG).show();
+
+                                    try {
+                                        String token = response.getString("token");
+                                        session.setLogin(true);
+                                        session.setToken(token);
+                                        hideDialog();
+                                        requestQueue.stop();
+                                        Intent intent = new Intent(LoginActivity.this, NavigationActivity.class);
+                                        startActivity(intent);
+                                        finish();
+
+
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+
                                     hideDialog();
                                     requestQueue.stop();
                                 }

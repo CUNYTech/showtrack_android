@@ -17,4 +17,18 @@
     <string name="logout">LogOut</string>
     <string name="welcome">Welcome</string>
     <string name="display_name">Display Name</string>
+    <string name="title_activity_navigation_">Navigation_Activity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="action_logout">Logout</string>
+    <string name="nav_home_text">Home</string>
+    <string name="nav_watch_list_text">Watch List</string>
+    <string name="nav_search_text">Search</string>
+    <string name="nav_share_text">Share</string>
+    <string name="nav_send_text">Send</string>
+    <string name="nav_feedback_text">Feedback</string>
+    <string name="nav_settings_text">Settings</string>
 </resources>

@@ -1,5 +1,6 @@
 package com.slack.cunycodes.showtrack;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
@@ -18,13 +19,15 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.slack.cunycodes.showtrack.App.AppConfig;
+import com.slack.cunycodes.showtrack.helper.SessionManager;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 public class RegistrationActivity extends AppCompatActivity {
     private final String LOG_TAG = getClass().getSimpleName();
-
+    private ProgressDialog pDialog;
+    private SessionManager session;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +44,12 @@ public class RegistrationActivity extends AppCompatActivity {
         Utility.customView(register, ContextCompat.getColor(this, R.color.color_button));
 
 
+        session = new SessionManager(getApplicationContext());
+
+        // Progress dialog
+        pDialog = new ProgressDialog(this);
+        pDialog.setCancelable(false);
+        pDialog.setMessage("Registering User");
         final String[] dataType = {""};
         register.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -132,6 +141,19 @@ public class RegistrationActivity extends AppCompatActivity {
                             new Response.Listener<JSONObject>() {
                                 @Override
                                 public void onResponse(JSONObject response) {
+                                    try {
+                                        String token = response.getString("token");
+                                        session.setLogin(true);
+                                        session.setToken(token);
+                                        hideDialog();
+                                        requestQueue.stop();
+                                        Intent intent = new Intent(RegistrationActivity.this, NavigationActivity.class);
+                                        startActivity(intent);
+                                        finish();
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+
                                     Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_LONG).show();
                                     requestQueue.stop();
                                 }
@@ -163,5 +185,17 @@ public class RegistrationActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    public void showDialog() {
+        if (!pDialog.isShowing()) {
+            pDialog.show();
+        }
+    }
+
+    public void hideDialog() {
+        if (pDialog.isShowing()) {
+            pDialog.dismiss();
+        }
     }
 }
