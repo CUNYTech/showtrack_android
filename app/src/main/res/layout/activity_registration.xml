@@ -49,7 +49,7 @@
                     android:layout_marginBottom="10dp"
                     android:background="@drawable/rounded_edittext"
                     android:ems="10"
-                    android:hint="@string/email"
+                    android:hint="@string/email_login_register"
                     android:inputType="textEmailAddress"
                     android:textAlignment="center"
                     tools:targetApi="jelly_bean_mr1" />
@@ -72,7 +72,7 @@
                     android:layout_marginBottom="10dp"
                     android:background="@drawable/rounded_edittext"
                     android:ems="10"
-                    android:hint="@string/password"
+                    android:hint="@string/password_login_register"
                     android:inputType="textPassword"
                     android:textAlignment="center"
                     tools:targetApi="jelly_bean_mr1" />
@@ -84,7 +84,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:background="@drawable/rounded_button"
-                    android:text="@string/register"
+                    android:text="@string/register_button"
                     android:textAlignment="center"
                     tools:targetApi="jelly_bean_mr1" />
 

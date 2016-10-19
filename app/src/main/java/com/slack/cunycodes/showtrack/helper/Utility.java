@@ -82,4 +82,17 @@ public class Utility {
         byte[] decodedBytes = Base64.decode(strEncoded, Base64.DEFAULT);
         return new String(decodedBytes, "UTF-8");
     }
+
+    public static String replaceSpaces(String text){
+        StringBuilder sb = new StringBuilder();
+        char[] chars = text.toCharArray();
+        for (char c:chars) {
+            if(c == ' '){
+                sb.append("%20");
+            }else {
+                sb.append(c);
+            }
+        }
+        return sb.toString();
+    }
 }

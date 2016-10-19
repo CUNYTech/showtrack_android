@@ -27,6 +27,8 @@ public class NavigationActivity extends AppCompatActivity
     private final String LOG_TAG = getClass().getSimpleName();
     private String mUserName;
     private String mEmailAddress;
+    private NavigationView mNavigationView;
+    private DrawerLayout mDrawer;
     SessionManager session;
 
 
@@ -44,10 +46,10 @@ public class NavigationActivity extends AppCompatActivity
         }
 
         setUserNameAndEmail();
+        homeFragment();
 
-
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        View headerView = navigationView.getHeaderView(0);
+        mNavigationView = (NavigationView) findViewById(R.id.nav_view);
+        View headerView = mNavigationView.getHeaderView(0);
         TextView userNameView = (TextView) headerView.findViewById(R.id.username_nav_header);
         TextView emailView = (TextView) headerView.findViewById(R.id.email_nav_header);
         userNameView.setText(mUserName);
@@ -59,18 +61,19 @@ public class NavigationActivity extends AppCompatActivity
         fabButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                openSearchFragment();
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
+                this, mDrawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        mDrawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        navigationView.setNavigationItemSelectedListener(this);
+        mNavigationView.setNavigationItemSelectedListener(this);
     }
 
     @Override
@@ -98,13 +101,14 @@ public class NavigationActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }else if(id==R.id.action_logout){
-            logout();
-        }else if(id == R.id.action_search){
-
-        }
+//        if (id == R.id.action_settings) {
+//            return true;
+//        }else if(id==R.id.action_logout){
+//            logout();
+//        }else
+//        if(id == R.id.action_search){
+//            openSearchFragment();
+//        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -116,9 +120,9 @@ public class NavigationActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_home) {
-            // Handle the camera action
+            homeFragment();
         } else if (id == R.id.nav_search) {
-
+            openSearchFragment();
         } else if (id == R.id.nav_watchlist) {
 
         } else if (id == R.id.nav_share) {
@@ -156,6 +160,22 @@ public class NavigationActivity extends AppCompatActivity
 
         mUserName = info[0];
         mEmailAddress = info[1];
+    }
+
+    private void openSearchFragment(){
+        SearchFragment fragment = new SearchFragment();
+        android.support.v4.app.FragmentTransaction fragmentTransaction =
+                getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_container, fragment);
+        fragmentTransaction.commit();
+    }
+
+    private void homeFragment(){
+        HomeFragment fragment = new HomeFragment();
+        android.support.v4.app.FragmentTransaction fragmentTransaction =
+                getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_container, fragment);
+        fragmentTransaction.commit();
     }
 
 }
