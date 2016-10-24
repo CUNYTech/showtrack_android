@@ -1,4 +1,4 @@
-package com.slack.cunycodes.showtrack.UI;
+package com.slack.cunycodes.showtrack.UI.Fragments;
 
 
 import android.os.Bundle;

@@ -1,4 +1,4 @@
-package com.slack.cunycodes.showtrack.UI;
+package com.slack.cunycodes.showtrack.UI.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,6 +18,8 @@ import android.widget.TextView;
 import com.slack.cunycodes.showtrack.R;
 import com.slack.cunycodes.showtrack.Helper.SessionManager;
 import com.slack.cunycodes.showtrack.Helper.Utility;
+import com.slack.cunycodes.showtrack.UI.Fragments.HomeFragment;
+import com.slack.cunycodes.showtrack.UI.Fragments.SearchFragment;
 
 import static com.slack.cunycodes.showtrack.R.id.fab;
 

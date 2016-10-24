@@ -1,4 +1,4 @@
-package com.slack.cunycodes.showtrack.UI;
+package com.slack.cunycodes.showtrack.UI.Activities;
 
 import android.app.ProgressDialog;
 import android.content.Intent;

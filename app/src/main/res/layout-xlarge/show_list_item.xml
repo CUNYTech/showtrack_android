@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="300dp"
+
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/show_list_item_image"
+        android:layout_width="200dp"
+        android:layout_height="match_parent"
+        android:paddingLeft="8dp"
+        android:src="@drawable/flash" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/show_list_item_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Flash"
+            android:textColor="@color/menu_icon"
+            android:textSize="48sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/show_list_item_year"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="2014"
+                android:textColor="@color/menu_icon"
+                android:textSize="@dimen/text_sublabel_large"/>
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/show_list_item_language"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="English"
+                android:textSize="@dimen/text_sublabel_large"
+                android:textColor="@color/menu_icon" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/show_list_item_rating"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Rating 8.9/10"
+            android:textAlignment="textEnd"
+            android:textColor="@color/menu_icon"
+            android:textSize="28sp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <TextView
+            android:id="@+id/show_list_item_desc"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ellipsize="end"
+            android:hint="@string/place_holder_description"
+            android:scrollHorizontally="true"
+            android:textColor="@color/menu_icon"
+            android:textStyle="italic"
+            android:textSize="20sp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

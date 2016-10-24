@@ -23,6 +23,16 @@ public class AppConfig {
     public static String URL_SEARCH_SHOW_EPISODE = "http://dango.us-east-1.elasticbeanstalk.com/api/v2/show/";
 
 
+    public static String JSON_OBJECT_REQ = "json_obj_req";
+
+
+    public static String JSON_ARRAY_REQ = "json_arr_req";
+
+
+    public static String JSON_STRING_REQ = "json_str_req";
+
+
+    public static String JSON_IMAGE_REQ = "json_str_req";
 
     /*
 
