@@ -1,7 +1,13 @@
-package com.slack.cunycodes.showtrack;
+package com.slack.cunycodes.showtrack.Helper;
 
 import android.graphics.drawable.GradientDrawable;
+import android.util.Base64;
+import android.util.Log;
 import android.view.View;
+
+import com.slack.cunycodes.showtrack.R;
+
+import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
@@ -53,5 +59,40 @@ public class Utility {
         shape.setCornerRadius(R.dimen.shape_radius);
         shape.setColor(backgroundColor);
         v.setBackground(shape);
+    }
+
+    public static String[]  decoded(String JWTEncoded) throws Exception {
+        String[] info = new String[2];
+        try {
+            String[] split = JWTEncoded.split("\\.");
+            Log.d("JWT_DECODED", "Header: " + getJson(split[0]));
+            Log.d("JWT_DECODED", "Body: " + getJson(split[1]));
+            String userJSON = getJson(split[1]);
+            JSONObject user = new JSONObject(userJSON);
+
+            info[0] = user.getString("username");
+            info[1] = user.getString("email");
+        } catch (UnsupportedEncodingException e) {
+            //Error
+        }
+        return info;
+    }
+
+    private static String getJson(String strEncoded) throws UnsupportedEncodingException{
+        byte[] decodedBytes = Base64.decode(strEncoded, Base64.DEFAULT);
+        return new String(decodedBytes, "UTF-8");
+    }
+
+    public static String replaceSpaces(String text){
+        StringBuilder sb = new StringBuilder();
+        char[] chars = text.toCharArray();
+        for (char c:chars) {
+            if(c == ' '){
+                sb.append("%20");
+            }else {
+                sb.append(c);
+            }
+        }
+        return sb.toString();
     }
 }

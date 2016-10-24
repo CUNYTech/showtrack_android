@@ -1,5 +1,6 @@
-package com.slack.cunycodes.showtrack;
+package com.slack.cunycodes.showtrack.UI.Activities;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
@@ -18,13 +19,17 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.slack.cunycodes.showtrack.App.AppConfig;
+import com.slack.cunycodes.showtrack.R;
+import com.slack.cunycodes.showtrack.Helper.SessionManager;
+import com.slack.cunycodes.showtrack.Helper.Utility;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 public class RegistrationActivity extends AppCompatActivity {
     private final String LOG_TAG = getClass().getSimpleName();
-
+    private ProgressDialog pDialog;
+    private SessionManager session;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,66 +46,16 @@ public class RegistrationActivity extends AppCompatActivity {
         Utility.customView(register, ContextCompat.getColor(this, R.color.color_button));
 
 
+        session = new SessionManager(getApplicationContext());
+
+        // Progress dialog
+        pDialog = new ProgressDialog(this);
+        pDialog.setCancelable(false);
+        pDialog.setMessage("Registering User");
         final String[] dataType = {""};
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                String nameuser = userName.getText().toString().toLowerCase().trim();
-//                String emailAddr = email.getText().toString().toLowerCase().trim();
-//                String pass = password.getText().toString().trim();
-//                String displayName = display.getText().toString().trim();
-//
-//                JSONObject post_dict = new JSONObject();
-//
-//                try {
-//                    post_dict.put("email",emailAddr);
-//                    post_dict.put("username" , nameuser);
-//                    post_dict.put("dispay_name",displayName);
-//                    post_dict.put("password", pass);
-//                } catch (JSONException e) {
-//                    e.printStackTrace();
-//                }
-//
-//                dataType[0] = "register";
-//                if (!nameuser.isEmpty() && !emailAddr.isEmpty() && !pass.isEmpty()&& !displayName.isEmpty()) {
-//                    BackgroundWorker bg = new BackgroundWorker(getApplicationContext());
-//                    try {
-//                        String jsonStr = bg.execute(dataType[0], post_dict.toString()).get();
-////                        Log.d(LOG_TAG, jsonStr);
-//                        JSONObject jObj = new JSONObject(jsonStr);
-//                        boolean error = jObj.getBoolean("error");
-//                        String token = jObj.optString("token");
-//                        // Check for error node in json
-//                        if (!token.isEmpty() || token != null) {
-//                            // user successfully logged in
-//                            // Create login session
-//
-//                            // Now store the user in SQLite
-//
-//
-//                            // Inserting row in users table
-//                            // Launch main activity
-//                            Intent intent = new Intent(RegistrationActivity.this,
-//                                    LoginActivity.class);
-//                            startActivity(intent);
-//                            finish();
-//                        } else {
-//                            // Error in login. Get the error message
-//                            String errorMsg = jObj.getString("error-reason");
-//                            Toast.makeText(getApplicationContext(),
-//                                    errorMsg, Toast.LENGTH_LONG).show();
-//                        }
-//                    } catch (InterruptedException | ExecutionException | JSONException e) {
-//                        e.printStackTrace();
-//                    }
-//                } else {
-//                    // Prompt user to enter credentials
-//                    Toast.makeText(getApplicationContext(),
-//                            "Please enter the credentials!", Toast.LENGTH_LONG)
-//                            .show();
-//                }
-
-
                 String nameuser = userName.getText().toString().toLowerCase().trim();
                 String emailAddr = email.getText().toString().toLowerCase().trim();
                 String pass = password.getText().toString().trim();
@@ -132,6 +87,19 @@ public class RegistrationActivity extends AppCompatActivity {
                             new Response.Listener<JSONObject>() {
                                 @Override
                                 public void onResponse(JSONObject response) {
+                                    try {
+                                        String token = response.getString("token");
+                                        session.setLogin(true);
+                                        session.setToken(token);
+                                        hideDialog();
+                                        requestQueue.stop();
+                                        Intent intent = new Intent(RegistrationActivity.this, NavigationActivity.class);
+                                        startActivity(intent);
+                                        finish();
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+
                                     Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_LONG).show();
                                     requestQueue.stop();
                                 }
@@ -163,5 +131,17 @@ public class RegistrationActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    public void showDialog() {
+        if (!pDialog.isShowing()) {
+            pDialog.show();
+        }
+    }
+
+    public void hideDialog() {
+        if (pDialog.isShowing()) {
+            pDialog.dismiss();
+        }
     }
 }
