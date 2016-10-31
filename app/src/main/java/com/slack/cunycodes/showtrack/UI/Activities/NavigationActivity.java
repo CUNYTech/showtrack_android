@@ -20,6 +20,7 @@ import com.slack.cunycodes.showtrack.Helper.SessionManager;
 import com.slack.cunycodes.showtrack.Helper.Utility;
 import com.slack.cunycodes.showtrack.UI.Fragments.HomeFragment;
 import com.slack.cunycodes.showtrack.UI.Fragments.SearchFragment;
+import com.slack.cunycodes.showtrack.UI.Fragments.WatchlistFragment;
 
 import static com.slack.cunycodes.showtrack.R.id.fab;
 
@@ -108,9 +109,9 @@ public class NavigationActivity extends AppCompatActivity
 //        }else if(id==R.id.action_logout){
 //            logout();
 //        }else
-//        if(id == R.id.action_search){
-//            openSearchFragment();
-//        }
+        if(id == R.id.action_search){
+            openSearchFragment();
+        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -126,7 +127,7 @@ public class NavigationActivity extends AppCompatActivity
         } else if (id == R.id.nav_search) {
             openSearchFragment();
         } else if (id == R.id.nav_watchlist) {
-
+            watchListFragement();
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
@@ -180,4 +181,15 @@ public class NavigationActivity extends AppCompatActivity
         fragmentTransaction.commit();
     }
 
+
+
+    private void watchListFragement() {
+        WatchlistFragment fragment = new WatchlistFragment();
+        android.support.v4.app.FragmentTransaction fragmentTransaction =
+                getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_container, fragment);
+        fragmentTransaction.commit();
+    }
+
 }
+
