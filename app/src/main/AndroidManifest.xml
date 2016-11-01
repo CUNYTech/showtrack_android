@@ -18,12 +18,17 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".UI.Activities.LoginActivity" />
         <activity android:name=".UI.Activities.RegistrationActivity" />
+        <activity
+            android:name=".UI.Activities.ShowDetailActivity"
+            android:parentActivityName=".UI.Activities.NavigationActivity">
 
+        </activity>
     </application>
 
 </manifest>

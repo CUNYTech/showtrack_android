@@ -33,6 +33,34 @@ public class AppConfig {
 
 
     public static String JSON_IMAGE_REQ = "json_str_req";
+    /*
+    TODO: Finish adding all other variables.
+     */
+
+    public static String SHOW_DETAIL_NAME = "showName";
+
+    public static String SHOW_DETAIL_SHOWID = "showID";
+
+    public static String SHOW_DETAIL_SHOWDESP = "showDesp";
+
+    public static String SHOW_DETAIL_IMAGE_URL = "imageURL";
+
+
+    /*
+
+    /*
+     private int showID;
+    private String showName;
+    private String showDescription;
+    private String[] showGenre;
+    private String showType;
+    private String showLanguage;
+    private float showRating;
+    private String showYear;
+    private String showImageURL;
+    private String timeString;
+
+     */
 
     /*
 
