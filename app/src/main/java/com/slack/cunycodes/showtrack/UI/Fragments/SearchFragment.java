@@ -3,12 +3,14 @@ package com.slack.cunycodes.showtrack.UI.Fragments;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -23,6 +25,7 @@ import com.slack.cunycodes.showtrack.Helper.Utility;
 import com.slack.cunycodes.showtrack.Objects.Show;
 import com.slack.cunycodes.showtrack.Objects.Time;
 import com.slack.cunycodes.showtrack.R;
+import com.slack.cunycodes.showtrack.UI.Activities.ShowDetailActivity;
 import com.slack.cunycodes.showtrack.UI.Adapter.ShowAdapter;
 
 import org.json.JSONArray;
@@ -42,7 +45,7 @@ public class SearchFragment extends Fragment {
     private ImageButton searchButton;
     private ArrayList<String> mArrayList;
     private ShowAdapter mAdapter;
-
+    private ListView listView;
     private ArrayList<Show> mShowList;
 
     public SearchFragment() {
@@ -53,11 +56,8 @@ public class SearchFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-
-
-        mShowList = new ArrayList<>();
         mArrayList = new ArrayList<>();
+        mShowList = new ArrayList<>();
         pDialog = new ProgressDialog(getContext());
         pDialog.setCancelable(false);
         pDialog.setMessage("Collecting Awesomeness");
@@ -72,7 +72,7 @@ public class SearchFragment extends Fragment {
                 searchQuery.setAlpha(1.0f);
             }
         });
-
+        listView = (ListView) mRootView.findViewById(R.id.list_view);
 
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,6 +83,20 @@ public class SearchFragment extends Fragment {
             }
         });
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getContext(), ShowDetailActivity.class);
+
+                intent.putExtra(AppConfig.SHOW_DETAIL_NAME, mShowList.get(i).getShowName());
+                intent.putExtra(AppConfig.SHOW_DETAIL_IMAGE_URL, mShowList.get(i).getShowImageURL());
+                intent.putExtra(AppConfig.SHOW_DETAIL_SHOWID, mShowList.get(i).getShowID());
+                intent.putExtra(AppConfig.SHOW_DETAIL_SHOWDESP, mShowList.get(i).getShowDescription());
+
+
+                startActivity(intent);
+            }
+        });
 
         return mRootView;
     }
@@ -203,7 +217,6 @@ public class SearchFragment extends Fragment {
             if (!mArrayList.isEmpty()) {
                 //TODO: Create appropirate Adapter class (Look into cardview and grid view)
                 mAdapter = new ShowAdapter(getContext(), mShowList);
-                ListView listView = (ListView) mRootView.findViewById(R.id.list_view);
                 listView.setAdapter(mAdapter);
             }
         } catch (JSONException e) {

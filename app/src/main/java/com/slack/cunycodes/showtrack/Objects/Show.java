@@ -18,7 +18,6 @@ public class Show {
 
     private String timeString;
 
-
     public Show(int showID, String showYear, String showName, String[] showGenre,
                 String showLanguage, String showType, float showRating,
                 String timeString, String showImageURL, String showDescription) {
@@ -78,4 +77,5 @@ public class Show {
     private String stripHtml(String html) {
         return android.text.Html.fromHtml(html).toString();
     }
+
 }
