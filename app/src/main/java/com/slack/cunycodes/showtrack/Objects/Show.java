@@ -33,7 +33,6 @@ public class Show {
         this.showDescription = stripHtml(showDescription);
     }
 
-
     public String getShowDescription() {
         return showDescription;
     }

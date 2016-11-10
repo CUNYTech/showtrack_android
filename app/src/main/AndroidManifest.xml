@@ -27,6 +27,11 @@
         <activity
             android:name=".UI.Activities.ShowDetailActivity"
             android:parentActivityName=".UI.Activities.NavigationActivity">
+            <intent-filter>
+                <action android:name="com.slack.cunycodes.showtrack.UI.Activities.ShowDetailActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
 
         </activity>
     </application>

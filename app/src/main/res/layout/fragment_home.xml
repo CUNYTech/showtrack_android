@@ -8,12 +8,12 @@
 
 
     <TextView
-        android:text="Welcome"
+        android:id="@+id/main_fragment_greeting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/main_fragment_greeting"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:textSize="40sp"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="16dp"
+        android:text="Welcome"
+        android:textSize="40sp" />
 </RelativeLayout>

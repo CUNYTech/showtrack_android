@@ -1,21 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#C25959</color>
-    <color name="colorPrimaryDark">#a40000</color>
-    <color name="colorPrimaryLight">#dc3838</color>
-    <color name="colorAccent">#C25959</color>
+    <color name="colorPrimary">#cd201f</color>
+    <color name="colorPrimaryDark">#cd201f</color>
+    <color name="colorPrimaryLight">#cd201f</color>
+    <color name="colorAccent">#cd201f</color>
     <color name="register_page">#404040</color>
     <color name="login_page">#303030</color>
-    <color name="navigation_page_main">#515151</color>
-    <color name="navigation_page_drawer">#797979</color>
+    <color name="navigation_page_main">#ffffff</color>
+    <color name="navigation_page_drawer">#ffffff</color>
     <color name="register_page_button">#4E2A8E</color>
     <color name="color_button">#C25959</color>
+    <color name="search_bg">#ffffff</color>
+    <color name="nav_bg">#ffffff</color>
+    <color name="searchbar_color">#ffffff</color>
+    <color name="remove_gray">#ffffff</color>
 
 
-    <color name="menu_icon">#ffffff</color>
-    <color name="menu_text">#ffffff</color>
+    <color name="menu_icon">#000000</color>
+    <color name="menu_text">#000000</color>
 
 
-    <color name="text_color">#fff</color>
-    <color name="hint_color">#686868</color>
+    <color name="text_color">#000000</color>
+    <color name="hint_color">#000000</color>
 </resources>
