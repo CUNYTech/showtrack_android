@@ -37,7 +37,7 @@ public class AppConfig {
 
     public static String SHOW_DETAIL_IMAGE_URL = "imageURL";
 
-    public static String SHOW_DETAIL_SHOW_TYPE = "showType";
+
 
     public static String SHOW_DETAIL_SHOW_GENRE = "showGenre";
 
@@ -48,6 +48,12 @@ public class AppConfig {
     public static String SHOW_DETAIL_SHOW_YEAR = "showYear";
 
     public static String SHOW_DETAIL_SHOW_TIME = "showTime";
+
+    public static String SHOW_DETAIL_SHOW_RUNTIME = "showRunTime";
+
+    public static String SHOW_DETAIL_SHOW_STATUS = "showStatus";
+
+    public static String SHOW_DETAIL_SHOW_TYPE = "showType";
 
 
 
