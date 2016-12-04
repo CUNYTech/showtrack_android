@@ -1,6 +1,5 @@
 package com.slack.cunycodes.showtrack.UI.Fragments;
 
-
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -87,13 +86,18 @@ public class SearchFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(getContext(), ShowDetailActivity.class);
-
                 intent.putExtra(AppConfig.SHOW_DETAIL_NAME, mShowList.get(i).getShowName());
                 intent.putExtra(AppConfig.SHOW_DETAIL_IMAGE_URL, mShowList.get(i).getShowImageURL());
                 intent.putExtra(AppConfig.SHOW_DETAIL_SHOWID, mShowList.get(i).getShowID());
                 intent.putExtra(AppConfig.SHOW_DETAIL_SHOWDESP, mShowList.get(i).getShowDescription());
+                intent.putExtra(AppConfig.SHOW_DETAIL_SHOW_GENRE, mShowList.get(i).getShowGenre());
 
-
+                intent.putExtra(AppConfig.SHOW_DETAIL_SHOW_RATING, mShowList.get(i).getShowRating());
+                intent.putExtra(AppConfig.SHOW_DETAIL_SHOW_YEAR, mShowList.get(i).getShowYear());
+                intent.putExtra(AppConfig.SHOW_DETAIL_SHOW_LANG, mShowList.get(i).getShowLanguage());
+                intent.putExtra(AppConfig.SHOW_DETAIL_SHOW_TYPE, mShowList.get(i).getShowType());
+                intent.putExtra(AppConfig.SHOW_DETAIL_SHOW_STATUS, mShowList.get(i).getShowStatus());
+                intent.putExtra(AppConfig.SHOW_DETAIL_SHOW_RUNTIME, mShowList.get(i).getShowRuntime());
                 startActivity(intent);
             }
         });
@@ -113,9 +117,7 @@ public class SearchFragment extends Fragment {
         }
     }
 
-
     private void onSearchButtonClick() {
-
         searchQuery.setAlpha(.1f);
         searchQuery.clearFocus();
         String text = searchQuery.getText().toString().trim();
@@ -172,10 +174,11 @@ public class SearchFragment extends Fragment {
                     showGenre = new String[]{null};
                 }
 
-
-
                 String showType = show.getString("type");
                 String showLanguage = show.getString("language");
+                String status = show.getString("status");
+                int runtime = show.getInt("runtime");
+
 
 //                float showRating = ((show.getJSONObject("rating").getJSONObject("average")) == null)?-1.0f:
 //                        (float)show.getJSONObject("rating").getDouble("average");
@@ -190,10 +193,8 @@ public class SearchFragment extends Fragment {
                 }
 
                 String showYear = show.getString("premiered");
-                String showImageURL = show.getJSONObject("image").getString("medium");
-
+                String showImageURL = show.getJSONObject("image").getString("original");
                 String timeString = show.getJSONObject("schedule").getString("time");
-
 
                 Time time;
                 if(timeString.equals("") || timeString == null) {
@@ -206,11 +207,9 @@ public class SearchFragment extends Fragment {
                 //TODO: Change code to create appropriate show object for using in view
 
                 Show currentShow = new Show(
-                        showID,showYear,showName,showGenre,showLanguage,
-                        showType,(float)showRating,showTime,showImageURL,showDescription
+                        showID, showYear, showName, showGenre, showLanguage,
+                        showType, (float) showRating, showTime, showImageURL, showDescription, status, runtime
                 );
-
-
                 mShowList.add(currentShow);
                 mArrayList.add(showName);
             }

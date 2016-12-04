@@ -41,6 +41,8 @@ public class ShowAdapter extends ArrayAdapter<Show> {
         TextView name = (TextView) convertView.findViewById(R.id.show_list_item_name);
         TextView year = (TextView) convertView.findViewById(R.id.show_list_item_year);
         TextView desc = (TextView) convertView.findViewById(R.id.show_list_item_desc);
+
+
         TextView language = (TextView) convertView.findViewById(R.id.show_list_item_language);
         TextView rating = (TextView) convertView.findViewById(R.id.show_list_item_rating);
 

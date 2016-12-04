@@ -10,7 +10,10 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="22dp"
+
+        android:layout_gravity="center"
+        android:background="@color/remove_gray"
         android:orientation="horizontal">
 
         <EditText
@@ -18,10 +21,11 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="@string/search_hint"
-            android:lines="1"
+            android:background="@color/searchbar_color"
             android:focusable="true"
             android:focusableInTouchMode="true"
+            android:hint="@string/search_hint"
+            android:lines="1"
             android:textColor="@color/text_color"
             android:textColorHint="@color/hint_color" />
 
@@ -35,13 +39,11 @@
 
     </LinearLayout>
 
-
     <ListView
         android:id="@+id/list_view"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-
+        android:layout_height="match_parent"
+        android:background="@color/search_bg"
+        android:focusable="true"
+        android:focusableInTouchMode="true" />
 </LinearLayout>

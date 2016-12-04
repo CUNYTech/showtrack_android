@@ -14,7 +14,6 @@ import com.slack.cunycodes.showtrack.R;
  */
 public class HomeFragment extends Fragment {
 
-
     public HomeFragment() {
         // Required empty public constructor
     }

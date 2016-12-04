@@ -15,15 +15,17 @@ public class Show {
     private String showYear;
 
     private String showImageURL;
-
     private String timeString;
+    private String showStatus;
+    private int showRuntime;
 
     public Show(int showID, String showYear, String showName, String[] showGenre,
                 String showLanguage, String showType, float showRating,
-                String timeString, String showImageURL, String showDescription) {
+                String timeString, String showImageURL, String showDescription, String showStatus, int showRuntime) {
         this.showID = showID;
         this.showName = showName;
         this.showGenre = showGenre;
+
         this.showLanguage = showLanguage;
         this.showType = showType;
         this.showYear = showYear.split("-")[0];
@@ -31,8 +33,10 @@ public class Show {
         this.timeString = timeString;
         this.showImageURL = showImageURL;
         this.showDescription = stripHtml(showDescription);
-    }
+        this.showStatus = showStatus;
+        this.showRuntime = showRuntime;
 
+    }
 
     public String getShowDescription() {
         return showDescription;
@@ -76,6 +80,14 @@ public class Show {
 
     private String stripHtml(String html) {
         return android.text.Html.fromHtml(html).toString();
+    }
+
+    public String getShowStatus() {
+        return showStatus;
+    }
+
+    public int getShowRuntime() {
+        return showRuntime;
     }
 
 }

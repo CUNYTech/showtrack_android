@@ -10,27 +10,19 @@ public class AppConfig {
     // Server user register url
     public static String URL_REGISTER = "http://dango.us-east-1.elasticbeanstalk.com/api/v1/accounts/register/";
 
-
     public static String URL_SEARCH_ALL_NAME = "http://dango.us-east-1.elasticbeanstalk.com/api/v2/search/";
-
 
     public static String URL_SEARCH_INDIVIDUAL_NAME = "http://dango.us-east-1.elasticbeanstalk.com/api/v2/single/";
 
-
     public static String URL_SEARCH_ALL_ID = "http://dango.us-east-1.elasticbeanstalk.com/api/v2/show/";
-
 
     public static String URL_SEARCH_SHOW_EPISODE = "http://dango.us-east-1.elasticbeanstalk.com/api/v2/show/";
 
-
     public static String JSON_OBJECT_REQ = "json_obj_req";
-
 
     public static String JSON_ARRAY_REQ = "json_arr_req";
 
-
     public static String JSON_STRING_REQ = "json_str_req";
-
 
     public static String JSON_IMAGE_REQ = "json_str_req";
     /*
@@ -44,6 +36,26 @@ public class AppConfig {
     public static String SHOW_DETAIL_SHOWDESP = "showDesp";
 
     public static String SHOW_DETAIL_IMAGE_URL = "imageURL";
+
+
+
+    public static String SHOW_DETAIL_SHOW_GENRE = "showGenre";
+
+    public static String SHOW_DETAIL_SHOW_LANG = "showLang";
+
+    public static String SHOW_DETAIL_SHOW_RATING = "showRating";
+
+    public static String SHOW_DETAIL_SHOW_YEAR = "showYear";
+
+    public static String SHOW_DETAIL_SHOW_TIME = "showTime";
+
+    public static String SHOW_DETAIL_SHOW_RUNTIME = "showRunTime";
+
+    public static String SHOW_DETAIL_SHOW_STATUS = "showStatus";
+
+    public static String SHOW_DETAIL_SHOW_TYPE = "showType";
+
+
 
 
     /*

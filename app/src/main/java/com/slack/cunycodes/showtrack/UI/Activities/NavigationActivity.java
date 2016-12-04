@@ -24,16 +24,14 @@ import com.slack.cunycodes.showtrack.UI.Fragments.WatchlistFragment;
 
 import static com.slack.cunycodes.showtrack.R.id.fab;
 
-public class NavigationActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class NavigationActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private final String LOG_TAG = getClass().getSimpleName();
+    SessionManager session;
     private String mUserName;
     private String mEmailAddress;
     private NavigationView mNavigationView;
     private DrawerLayout mDrawer;
-    SessionManager session;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +45,7 @@ public class NavigationActivity extends AppCompatActivity
         if (!session.isLoggedIn()) {
             logout();
         }
+
 
         setUserNameAndEmail();
         homeFragment();
