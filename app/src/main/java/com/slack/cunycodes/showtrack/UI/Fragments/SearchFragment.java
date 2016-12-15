@@ -99,6 +99,7 @@ public class SearchFragment extends Fragment {
                 intent.putExtra(AppConfig.SHOW_DETAIL_SHOW_STATUS, mShowList.get(i).getShowStatus());
                 intent.putExtra(AppConfig.SHOW_DETAIL_SHOW_RUNTIME, mShowList.get(i).getShowRuntime());
                 startActivity(intent);
+
             }
         });
 

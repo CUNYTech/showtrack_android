@@ -83,8 +83,6 @@ public class ShowAdapter extends ArrayAdapter<Show> {
             }
         }
 
-
-
         name.setText(showName);
         year.setText(showYear);
         desc.setText(showDesc);

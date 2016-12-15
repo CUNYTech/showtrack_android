@@ -5,12 +5,13 @@ package com.slack.cunycodes.showtrack.App;
  */
 public class AppConfig {
     // Server user login url
-    public static String URL_LOGIN = "http://dango.us-east-1.elasticbeanstalk.com/api/v1/accounts/login/";
+    public static String URL_LOGIN = "http://starter-dev2.us-east-1.elasticbeanstalk.com/api/v1/accounts/login/";
 
     // Server user register url
-    public static String URL_REGISTER = "http://dango.us-east-1.elasticbeanstalk.com/api/v1/accounts/register/";
+    public static String URL_REGISTER = "http://starter-dev2.us-east-1.elasticbeanstalk.com/api/v1/accounts/register/";
 
-    public static String URL_SEARCH_ALL_NAME = "http://dango.us-east-1.elasticbeanstalk.com/api/v2/search/";
+    public static String URL_SEARCH_ALL_NAME ="http://starter-dev2.us-east-1.elasticbeanstalk.com/api/v2/search/";
+
 
     public static String URL_SEARCH_INDIVIDUAL_NAME = "http://dango.us-east-1.elasticbeanstalk.com/api/v2/single/";
 

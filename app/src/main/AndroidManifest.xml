@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
+        android:debuggable="true"
         android:name=".App.AppController"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"

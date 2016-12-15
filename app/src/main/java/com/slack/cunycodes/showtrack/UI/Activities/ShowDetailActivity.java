@@ -68,7 +68,7 @@ public class ShowDetailActivity extends AppCompatActivity {
 
         //Toast .makeText(this, showName + String.valueOf(showID) + showImageUrl, Toast.LENGTH_SHORT).show();
         TextView tv = (TextView) findViewById(R.id.desp);
-        TextView showNameView = (TextView) findViewById(R.id.showNameView);
+        //TextView showNameView = (TextView) findViewById(R.id.showNameView);
         TextView rating = (TextView) findViewById(R.id.rating);
         ImageView iv = (ImageView) findViewById(R.id.poster);
         TextView ShowYear = (TextView) findViewById(R.id.year);
@@ -79,7 +79,10 @@ public class ShowDetailActivity extends AppCompatActivity {
         TextView showRuntime = (TextView) findViewById(R.id.ShowRuntime);
 
         //Show name
-        showNameView.setMovementMethod(new ScrollingMovementMethod());
+        //showNameView.setMovementMethod(new ScrollingMovementMethod());
+
+        //showNameView.setText(showName);
+
 
         //Show Poster
         Picasso.with(this).load(showImageUrl).into(iv);
@@ -90,9 +93,9 @@ public class ShowDetailActivity extends AppCompatActivity {
 
         //Show Rating
         if (showRating > 0) {
-            rating.setText(String.valueOf("Rating: " + showRating + "\n"));
+            rating.setText(String.valueOf("Rating: " + showRating));
         } else {
-            rating.setText("No rating available");
+            rating.setText("Rating: No rating available");
         }
 
         //Show Year
@@ -112,7 +115,7 @@ public class ShowDetailActivity extends AppCompatActivity {
         showStatus.setText(String.valueOf("Status: " + status));
 
         //Show Runtime
-        showRuntime.setText(String.valueOf("Runtime: " + runtime));
+        showRuntime.setText(String.valueOf("Runtime: " + runtime + " " + "minutes"));
 
     }
 }
