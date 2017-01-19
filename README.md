@@ -1,7 +1,7 @@
 # showtrack_android
 
-An android application built my Mofi and me(Timothy) that lets you search and find details about your favorite TV show.
-There is also a website that goes with this project: https://www.showtrakr.com
+An android application built by Mofi and me(Timothy) that lets you search and find details about your favorite TV show.
+There is also a website that goes with this project: https://www.showtrakr.com (might be down)
 
 <a href="http://tinypic.com?ref=2sai15w" target="_blank"><img src="http://i63.tinypic.com/2sai15w.jpg" border="0" alt="Home Screen" width="400" height="600"></a>
 <br>
