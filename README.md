@@ -1,4 +1,4 @@
-# showtrack_android
+# Showtrack Android App
 
 An android application built by Mofi and me(Timothy) that lets you search and find details about your favorite TV show.
 There is also a website that goes with this project: https://www.showtrakr.com (might be down)
