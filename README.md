@@ -7,9 +7,11 @@ There is also a website that goes with this project: https://www.showtrakr.com (
 <br>
 <center><a href="http://tinypic.com?ref=2sai15w" target="_blank"><img src="http://i63.tinypic.com/2sai15w.jpg" border="0" alt="Home Screen" width="400" height="600"></a>
 <br>
+
 <b>Search Results</b>
 <br>
 <a href="http://tinypic.com?ref=2pt2epv" target="_blank"><img src="http://i68.tinypic.com/2pt2epv.jpg" border="0" alt="Search Results"  width="400" height="600"></a>
+<br>
 <br>
 <b>Details Page</b>
 <br>
