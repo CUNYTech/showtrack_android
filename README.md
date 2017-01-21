@@ -18,3 +18,5 @@ There is also a website that goes with this project: https://www.showtrakr.com (
 <img src="http://i66.tinypic.com/2dtn42f.jpg" border="0" alt=" Details Page" width="400" height="600">
 
 You can compile this project using the latest Android Studio
+
+No files are hosted or served by Showtrack.  Show details are pulled from 3rd party APIs
