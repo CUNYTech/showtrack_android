@@ -19,4 +19,4 @@ There is also a website that goes with this project: https://www.showtrakr.com (
 
 You can compile this project using the latest Android Studio
 
-<b>No files are hosted or served by Showtrack.</b>
+<b>No files are hosted or served by Showtrack</b>
